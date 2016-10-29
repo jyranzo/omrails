@@ -15,7 +15,7 @@
     <tbody>
       <% @tweets.each do |tweet| %>
         <tr>
-          <td><%= tweet.user %></td>
+          <td><%= tweet.user.email %></td>
           <td><%= tweet.content %></td>
           <td><%= tweet.text %></td>
           <td><%= link_to 'Show', tweet %></td>
@@ -28,5 +28,5 @@
 
   <br>
 
-  <%= link_to 'New Tweet', new_tweet_path %>
+  <%= link_to 'New Tweet', new_tweet_path, class: "btn btn-primary" %>
 </div>
