@@ -1,0 +1,36 @@
+<div class="container">
+
+<h1>Skills</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @skills.each do |skill| %>
+      <tr>
+        <td><%= skill.user.email %></td>
+        <td><%= skill.content %></td>
+        <td><%= link_to 'Show', skill %></td>
+        
+        <% if skill.user == current_user %>
+          <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
+          <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if user_signed_in? %>
+<%= link_to 'New Skill', new_skill_path %>
+<% end %>
+
+</div>
