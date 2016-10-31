@@ -1,24 +1,17 @@
 <div class="container">
+	<div class="row">
+		<div claas="offset-md-2 col-md-8">
+			<div class="card card-block">
+				<h4 calss="card-title"><%= @tweet.user.email %></h4>
+				<p class="card-text"><%= @tweet.content %></p>
 
-	<p>
-	  <strong>User:</strong>
-	  <%= @tweet.user %>
-	</p>
+			    <% if @tweet.user == current_user %>
+			    	<%= link_to 'Edit', edit_tweet_path(@tweet), class: "card-link" %>
+			    	<%= link_to 'Delete', @tweet, method: :delete, class: "card-link" %>
+			    <% end %>	
 
-	<p>
-	  <strong>Content:</strong>
-	  <%= @tweet.content %>
-	</p>
-
-	<p>
-	  <strong>Text:</strong>
-	  <%= @tweet.text %>
-	</p>
-
-    <% if @tweet.user == current_user %>
-    	<%= link_to 'Edit', edit_tweet_path(@tweet) %> |
-    <% end %>	
-
-	<%= link_to 'Back', tweets_path %>
-
+				<%= link_to 'Back', tweets_path, class: "card-link" %>
+			</div>
+		</div>
+	</div>
 </div>
