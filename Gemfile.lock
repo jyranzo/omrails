@@ -8,6 +8,13 @@ GIT
       railties (>= 3.2, < 5.1)
       responders
 
+GIT
+  remote: git://github.com/tcocca/acts_as_follower.git
+  revision: c395dd2f1d62a5879e9d084c770dc35e02ee1043
+  specs:
+    acts_as_follower (0.2.1)
+      activerecord (>= 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -221,6 +228,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin (~> 1.0.0.pre4)
+  acts_as_follower!
   bootstrap (~> 4.0.0.alpha4)
   byebug
   coffee-rails (~> 4.2)
@@ -245,4 +253,4 @@ RUBY VERSION
    ruby 2.3.0p0
 
 BUNDLED WITH
-   1.13.2
+   1.13.6
