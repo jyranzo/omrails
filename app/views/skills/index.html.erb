@@ -14,13 +14,13 @@
   <tbody>
     <% @skills.each do |skill| %>
       <tr>
-        <td><%= skill.user.email %></td>
+        <td><%= skill.user.username %></td>
         <td><%= skill.content %></td>
         <td><%= link_to 'Show', skill %></td>
         
         <% if skill.user == current_user %>
           <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
-          <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Delete', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>

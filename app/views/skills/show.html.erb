@@ -1,16 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+	<div class="row">
+		<div claas="offset-md-2 col-md-8">
+			<div class="card card-block">
+				<h4 calss="card-title"><%= @skill.user.email %></h4>
+				<p class="card-text"><%= @skill.content %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @skill.user %>
-</p>
+			    <% if @skill.user == current_user %>
+			    	<%= link_to 'Edit', edit_skill_path(@skill), class: "card-link" %>
+			    	<%= link_to 'Delete', @skill, method: :delete, class: "card-link" %>
+			    <% end %>	
 
-<p>
-  <strong>Content:</strong>
-  <%= @skill.content %>
-</p>
-
-<% if @skill.user == current_user %>
-	<%= link_to 'Edit', edit_skill_path(@skill) %> |
-<% end %>
-<%= link_to 'Back', skills_path %>
+				<%= link_to 'Back', skill_path, class: "card-link" %>
+			</div>
+		</div>
+	</div>
+</div>
