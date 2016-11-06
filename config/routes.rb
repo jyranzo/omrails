@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
- 
-  resources :skills do
-    member do
-      post 'vote', to: 'votes#create'
-      delete 'unvote', to: 'votes#destroy'
-    end
-  end
-
-
   ActiveAdmin.routes(self)
   devise_for :users
   as :user do
@@ -16,7 +7,12 @@ Rails.application.routes.draw do
     get "signup", to: 'devise/registrations#new'
   end
 
-
+  resources :skills do
+    member do
+      post 'vote', to: 'votes#create'
+      delete 'unvote', to: 'votes#destroy'
+    end
+  end
   
   resources :tweets
 
