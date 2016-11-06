@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-	get '/users/:username', to: 'users#show', as: 'user'
+
+  get 'feed', to: 'feed#show'
 
   resources :skills
   resources :tweets
+ 
   ActiveAdmin.routes(self)
   devise_for :users
   as :user do
@@ -11,9 +13,15 @@ Rails.application.routes.draw do
   	get "signup", to: 'devise/registrations#new'
   end
   root 'pages#home'
-  get 'about' => 'pages#about'
-  get 'contact' => 'pages#contact'
+  get 'about', to: 'pages#about'
+  get 'contact', to: 'pages#contact'
 
+ resources :users, only: :show, param: :username do
+    member do
+      post 'follow', to: 'follows#create'
+      delete 'unfollow', to: 'follows#destroy'
+    end
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
